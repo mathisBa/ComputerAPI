@@ -24,3 +24,57 @@ Content-Type: application/json
     "content": "Rien",
     "email" : "MB@mail.org"
 }
+
+### RAM 
+### GET All
+GET http://localhost:3001/api/ram
+
+### GET id 
+GET http://localhost:3001/api/ram/1
+
+### POST 
+POST http://localhost:3001/api/ram
+Content-Type: application/json
+
+{
+    "brand": "Crucial",
+    "capacity": 8
+}
+
+### PUT
+PUT http://localhost:3001/api/ram/1
+Content-Type: application/json
+
+{
+    "brand": "Corsair",
+    "capacity": 16
+}
+
+### DELETE
+DELETE http://localhost:3001/api/ram/1
+
+### MB 
+### GET All
+GET http://localhost:3001/api/mb
+
+### GET id 
+GET http://localhost:3001/api/mb/1
+
+### POST 
+POST http://localhost:3001/api/mb
+Content-Type: application/json
+
+{
+    "brand": "Crucial"
+}
+
+### PUT
+PUT http://localhost:3001/api/mb/1
+Content-Type: application/json
+
+{
+    "brand": "Corsair"
+}
+
+### DELETE
+DELETE http://localhost:3001/api/mb/1
