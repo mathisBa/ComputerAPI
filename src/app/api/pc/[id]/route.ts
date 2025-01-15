@@ -21,8 +21,6 @@ export const GET = async (_ : NextRequest, { params }: Params) => {
 
 export const DELETE = async (_: NextRequest, { params }: Params) => {
   const {id} = await params
-
-  try {
       const deletedPost = await prisma.pC.delete({
           where: {
               id: parseInt(id),
@@ -30,10 +28,6 @@ export const DELETE = async (_: NextRequest, { params }: Params) => {
       });
 
       return NextResponse.json({ message: "Élément supprimé avec succès", deletedPost }, { status: 200 });
-  } catch (error) {
-      console.error("Erreur lors de la suppression :", error);
-      return NextResponse.json({ error: "Erreur lors de la suppression de l'élément" }, { status: 500 });
-  }
 };
 
 export const PUT = async (
