@@ -50,7 +50,7 @@ export const PUT = async (
         data: {
           mb: { connect: { id: mb } },
           ram: {
-            connect: body.ramIds.map((id: number) => { return { id }; }) },
+            set: body.ramIds.map((id: number) => { return { id }; }) },
         },
         include: {
           mb: true,
