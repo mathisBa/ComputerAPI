@@ -37,12 +37,12 @@ POST http://localhost:3001/api/ram
 Content-Type: application/json
 
 {
-    "brand": "Crucial",
-    "capacity": 8
+    "brand": "NETFLIX",
+    "capacity": 160
 }
 
 ### PUT
-PUT http://localhost:3001/api/ram/1
+PUT http://localhost:3001/api/ram/2
 Content-Type: application/json
 
 {
@@ -65,7 +65,7 @@ POST http://localhost:3001/api/mb
 Content-Type: application/json
 
 {
-    "brand": "Crucial"
+    "brand": "Fake"
 }
 
 ### PUT
@@ -78,3 +78,33 @@ Content-Type: application/json
 
 ### DELETE
 DELETE http://localhost:3001/api/mb/1
+
+### PC 
+### GET All
+GET http://localhost:3001/api/pc
+
+### GET id 
+GET http://localhost:3001/api/pc/2
+
+### POST 
+POST http://localhost:3001/api/pc
+Content-Type: application/json
+
+{
+    "mb": 3,
+    "ramIds": [3, 4]
+}
+
+
+### PUT
+PUT http://localhost:3001/api/pc/2
+Content-Type: application/json
+
+{
+    "mb": 5,
+    "ramIds": [5]
+}
+
+
+### DELETE
+DELETE http://localhost:3001/api/pc/1
