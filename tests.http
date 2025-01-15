@@ -1,0 +1,26 @@
+### POST
+POST http://localhost:3001/api/
+Content-Type: application/json
+
+{
+    "titi": "Matmat"
+}
+
+### GET
+GET http://localhost:3001/api/ 
+
+### GET Toto
+GET http://localhost:3001/api/toto
+
+### GET id 
+GET http://localhost:3001/api/toto/1
+
+### POST POST
+POST http://localhost:3001/api/toto
+Content-Type: application/json
+
+{
+    "title": "Post",
+    "content": "Rien",
+    "email" : "MB@mail.org"
+}
