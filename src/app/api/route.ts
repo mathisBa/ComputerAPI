@@ -1,7 +1,7 @@
 import { prisma } from "@/tools/prisma";
 import { NextRequest, NextResponse } from "next/server";
 
-export const GET = (request : NextRequest) => {
+export const GET = () => {
     return NextResponse.json({
         message: "Bonjour"
     })

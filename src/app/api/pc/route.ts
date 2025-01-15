@@ -1,8 +1,8 @@
 import { prisma } from "@/tools/prisma"
 import { NextRequest, NextResponse } from "next/server"
 
-export const GET = async (request: NextRequest) => {
-    try {
+export const GET = async () => {
+
       const allPCs = await prisma.pC.findMany(
         {include:{
             mb:true,
@@ -11,20 +11,10 @@ export const GET = async (request: NextRequest) => {
       );
   
       return NextResponse.json(allPCs, { status: 200 });
-    } catch (error: any) {
-      console.error("Erreur lors de la récupération des PCs :", error);
-      return NextResponse.json(
-        {
-          error: "Impossible de récupérer les PCs.",
-          details: error.message || "Erreur inconnue",
-        },
-        { status: 500 }
-      );
-    }
+    
   };
 
 export const POST = async (request: NextRequest) => {
-    try {
         const body = await request.json();
 
         // Validation des données
@@ -43,11 +33,5 @@ export const POST = async (request: NextRequest) => {
         });
 
         return NextResponse.json(newPC, { status: 201 });
-    } catch (error) {
-        console.error("Erreur lors de la création du PC :", error);
-        return NextResponse.json(
-            { error: "Impossible de créer le PC.", details: error},
-            { status: 500 }
-        );
-    }
+    
 };

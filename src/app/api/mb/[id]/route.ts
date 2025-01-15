@@ -1,7 +1,12 @@
 import { prisma } from "@/tools/prisma";
 import { NextRequest, NextResponse } from "next/server"
 
-export const GET = async (request : NextRequest, {params : {id}}: {params : {id:string}}) => {
+type Params = {
+    params: Promise<{id: string}>
+  }
+
+export const GET = async (_ : NextRequest, { params }: Params) => {
+    const {id} = await params
     const posts = await prisma.mB.findUnique({
         where : {
             id : parseInt(id)
@@ -10,7 +15,8 @@ export const GET = async (request : NextRequest, {params : {id}}: {params : {id:
     return NextResponse.json(posts)
 }
 
-export const PUT = async (request: NextRequest, { params: { id } }: { params: { id: string } }) => {
+export const PUT = async (request : NextRequest, { params }: Params) => {
+    const {id} = await params
     try {
         const body = await request.json();
         const updatedPost = await prisma.mB.update({
@@ -26,7 +32,8 @@ export const PUT = async (request: NextRequest, { params: { id } }: { params: { 
     }
 };
 
-export const DELETE = async (request: NextRequest, { params: { id } }: { params: { id: string } }) => {
+export const DELETE = async (_ : NextRequest, { params }: Params) => {
+    const {id} = await params
     try {
         const deletedPost = await prisma.mB.delete({
             where: {
