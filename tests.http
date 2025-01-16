@@ -27,7 +27,7 @@ Content-Type: application/json
 
 ### RAM 
 ### GET All
-GET http://localhost:3001/api/ram
+GET http://localhost:3000/api/ram
 ### On vercel
 GET https://computer-api-b9di.vercel.app/api/ram
 ### GET id 

@@ -1,8 +1,12 @@
 import { prisma } from "@/tools/prisma"
 import { NextRequest, NextResponse } from "next/server"
+import { authMiddleware } from "@/tools/authMiddleware"
 
-export const GET = async () => {
-
+export const GET = async (request: NextRequest) => {
+    const authResponse = await authMiddleware(request);
+    if (authResponse.status === 401) {
+      return authResponse;
+    }
       const allPCs = await prisma.pC.findMany(
         {include:{
             mb:true,
