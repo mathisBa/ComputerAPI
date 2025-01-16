@@ -1,7 +1,12 @@
+'use client'
+
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const { data: session, status } = useSession();
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -13,6 +18,15 @@ export default function Home() {
           height={38}
           priority
         />
+
+    {status === "authenticated" && session?.user && (
+      <div className={styles.userInfo}>
+        <h2>Informations de l'utilisateur GitHub</h2>
+        <p>session.user.image</p>
+        <p><strong>Nom:</strong> {session.user.name}</p>
+        <p><strong>Email:</strong> {session.user.email}</p>
+      </div>
+    )}
 
 
         <div className={styles.ctas}>
@@ -88,3 +102,4 @@ export default function Home() {
     </div>
   );
 }
+
